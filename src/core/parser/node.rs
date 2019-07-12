@@ -1,8 +1,3 @@
-enum NodeType {
-    Statement,
-    Expression,
-
-}
 
 struct NodePosition {
     uid: String;
