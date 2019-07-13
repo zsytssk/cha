@@ -1,5 +1,8 @@
 use std::fs::read_to_string;
+mod core;
+use crate::core::{parser::Parser, executer::Executer};
+
 fn main() {
-    let buffer = read_to_string("src/spec/demo.cha").unwrap();
-    println!("{}", buffer);
+    let source = read_to_string("src/spec/demo.cha").unwrap();
+    Parser::parse(&source);
 }

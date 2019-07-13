@@ -1,2 +1,4 @@
-let a = "hello world";
-print(a);
+{
+    let a = "hello world";
+    print(a);
+}

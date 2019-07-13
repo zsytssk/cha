@@ -1,4 +1,4 @@
-enum NodeType {
+pub enum NodeType {
     Statement,
     Expression,
 }
