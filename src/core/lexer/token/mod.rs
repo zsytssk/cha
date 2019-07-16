@@ -1,7 +1,7 @@
 pub mod token_data;
 
 pub use token_data::TokenData;
-use super::pos::Pos;
+use crate::core::utils::pos::Pos;
 
 #[derive(Debug)]
 pub struct Token {

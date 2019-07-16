@@ -1,8 +1,10 @@
 use std::fs::read_to_string;
 mod core;
-use crate::core::{parser::Parser, executer::Executer};
+
+use crate::core::{executer::Executer, lexer::Lexer, parser::Parser};
 
 fn main() {
     let source = read_to_string("src/spec/demo.cha").unwrap();
-    Parser::parse(&source);
+    let tokens = Lexer::parse(&source);
+    Parser::parse(tokens);
 }
