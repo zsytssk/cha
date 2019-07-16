@@ -1,7 +1,7 @@
 #[derive(Debug)]
 pub struct Pos {
-    x: u64,
-    y: u64,
+    pub x: u64,
+    pub y: u64,
 }
 
 impl Pos {
@@ -15,4 +15,13 @@ impl Pos {
 pub struct NodePosition {
     uid: String,
     pos: Pos,
+}
+
+impl NodePosition {
+    pub fn new(x: u64, y: u64) -> NodePosition {
+        NodePosition {
+            uid: "".to_owned(),
+            pos: Pos::new(x, y)
+        }
+    }
 }

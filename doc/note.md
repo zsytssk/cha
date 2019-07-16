@@ -1,3 +1,36 @@
+- @todo let 语句
+
+* @ques 每一种的 nodeType 的格式其实都是不一样的
+
+  - 有没有统一的格式...
+
+* @ques let 语句如何去组织...
+
+  - `let a = 1;`
+
+* @ques struct 能不能使用空对象
+  left 能不能可选 + 创建时候为空
+
+```rs
+Node {
+    left: Box::new(),
+    ...
+}
+```
+
+- @ques 怎么创建一个空的
+
+* @ques Parser::parse 里面的 match 放在其他的地方会更有条理
+
+- @ques 怎么把 node 放到其他的 node 下面...
+
+  - scope_tree 结束之后才会放到 scope_tree 中 上一个 scope, 将自己去掉...
+  - scope_tree 为空 才会放到 node_list 中
+
+- @ques scope 的类型
+
+  - function if ..
+
 - @ques 语句的类型
   - 运算 left + right ...
   - 我怎么通过运算符 拿到左边的值呢
