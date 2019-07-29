@@ -6,6 +6,13 @@
 
 先变成一条链式的:> [{] -> [let] -> [a] -> [=] -> [1] -> [;] -> [}]
 
+```
+scope {
+    other...,
+    scope...
+}
+```
+
 再判断它是一个赋值语句，生成一个
 (statement variable a value 1)
 
