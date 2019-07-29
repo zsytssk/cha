@@ -40,12 +40,12 @@ impl Parser {
                     }
                     Punc::CloseBlock => {
                         let cur_scope = scope_tree.last_mut().unwrap();
-                        if let NodeVal::Scope(scope) = &cur_scope.val {
-                            for item in &node_list {
+                        if let NodeVal::Scope(boxed_scope) = &mut cur_scope.val {
+                            let scope = boxed_scope.as_mut();
+                            for i in 0..node_list.len() {
+                                let item = node_list.remove(i);
                                 scope.add_child(item)
                             }
-                        } else {
-
                         }
                     }
                     _ => {}

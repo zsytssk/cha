@@ -1,3 +1,15 @@
+- @ques rust 怎么将 vec 中 item 拿出来放到其他地方...
+  - 我就是要将 item 拿出来
+
+```rs
+for i in 0..node_list.len() {
+    let item = node_list[i];
+    scope.add_child(item)
+}
+```
+
+## 2019-07-30 07:39:51
+
 - @quest scope 的子集到底是什么类型...
 
   - 必须是一个, 也就是是
