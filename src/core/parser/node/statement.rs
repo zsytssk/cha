@@ -1,5 +1,6 @@
 use super::{Node};
 
+#[derive(Debug)]
 pub struct Statement {
     children: Vec<Node>,
 }

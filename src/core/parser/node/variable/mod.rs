@@ -2,6 +2,7 @@ mod variable_type;
 
 use variable_type::VariableType;
 
+#[derive(Debug)]
 pub struct Variable {
     name: String,
     variable_type: Option<VariableType>,

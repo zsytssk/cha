@@ -1,3 +1,35 @@
+- @ques expect lifeTime 如何解决...
+
+  - 给 expect 添加这个参数....
+  - 这样所有的都只在函数中有效...
+  - expect_fn 的生命周期最多和 ExpectList 一样, 不可能超过 scope_tree, 这我怎么处理
+
+- @ques rust 能不能获取一个变量的 lifeTime
+  - 或者然 struct 函数的参数的 lifetime 为 self
+
+* @ques `let Expect{expect_fn,..} = self;expect_fn()`
+
+  - expect_fn 不知道自己内部使用多少对象, 不知道他的 size
+
+* @ques 两个 enum 怎么 match 相等
+
+```
+match (self_val_type, self_expect_type) {
+    (val_type, expect_type) => true,
+    _ => false,
+}
+```
+
+- @ques rust 能用观察者吗
+
+- @ques rust 一行就相当于一个语句
+
+  - 检测换行符...
+
+- @todo ExpectList<T: PartialEq, U>
+
+## 2019-08-02 07:45:55
+
 - @ques rust 怎么将 vec 中 item 拿出来放到其他地方...
   - 我就是要将 item 拿出来
 

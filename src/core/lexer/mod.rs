@@ -5,6 +5,7 @@ mod token;
 use error::Error;
 use std::iter::Peekable;
 use std::str::Chars;
+
 pub use token::{Token, TokenData};
 pub use config::punc::Punc;
 pub use config::keyword::Keyword;
@@ -41,6 +42,7 @@ impl<'a> Lexer<'a> {
             match self.preview_next() {
                 Some(_) => (),
                 None => {
+                    self.push_token(TokenData::EOF);
                     return Ok(());
                 }
             }
@@ -48,6 +50,7 @@ impl<'a> Lexer<'a> {
 
             match ch {
                 '\n' | ' ' | '\t' | '\r' => {
+                    self.push_token(TokenData::EOL);
                     if ch == '\r' {
                         self.line_number += 1;
                         self.column_number = 0;

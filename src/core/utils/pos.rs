@@ -12,6 +12,7 @@ impl Pos {
     }
 }
 
+#[derive(Debug)]
 pub struct NodePosition {
     uid: String,
     pos: Pos,

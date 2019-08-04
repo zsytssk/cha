@@ -1,3 +1,11 @@
+```rs
+{
+    let a = 1;
+}
+```
+
+## save
+
 - @todo 语句
 - @todo 赋值
 - @todo 加减乘除

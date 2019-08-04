@@ -8,6 +8,7 @@ mod statement;
 pub use crate::core::utils::pos::NodePosition;
 pub use node_type::{NodeType, NodeVal};
 
+#[derive(Debug)]
 pub struct Node {
     pub val: NodeVal,
     pub position: NodePosition,
@@ -20,5 +21,8 @@ impl Node {
             val: node_val,
             position
         }
+    }
+    pub fn get_val(&mut self) -> &mut NodeVal {
+        return &mut self.val;
     }
 }
