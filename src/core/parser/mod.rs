@@ -20,6 +20,8 @@ impl Parser {
         parser.parsing(tokens)
     }
     pub fn parsing(&mut self, tokens: Vec<Token>) {
+        let mut expect_list: ExpectList<NodeType, Node> = ExpectList::new();
+
         for token in tokens {
             let Token { data, pos } = token;
 
@@ -58,11 +60,11 @@ impl Parser {
                         let cur_node = Node::new(NodeType::Scope, NodePosition::new(pos.x, pos.y));
                         let mut ref_scope_tree = self.scope_tree.lock().unwrap();
                         ref_scope_tree.push(cur_node);
-
-                        self.expect_list.add(NodeType::Scope, ExpectType::After, Box::new(|child_scope| {
+                        let expect_fn: Box<FnOnce(Node)> = Box::new(|child_scope| {
                             let mut ref_scope_tree = self.scope_tree.lock().unwrap();
                             Parser::last_scope_add_child(&mut ref_scope_tree, child_scope);
-                        }));
+                        });
+                        self.expect_list.add(NodeType::Scope, ExpectType::After, expect_fn);
                     }
                     Punc::CloseBlock => {
                         let mut ref_scope_tree = self.scope_tree.lock().unwrap();
@@ -89,4 +91,5 @@ impl Parser {
             _=> {}
         }
     }
+    fn test(&mut self) {}
 }
