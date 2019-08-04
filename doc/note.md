@@ -13,6 +13,8 @@
 
 * @ques 两个 enum 怎么 match 相等
 
+* @ques rust 如何传递函数给 struct
+
 ```
 match (self_val_type, self_expect_type) {
     (val_type, expect_type) => true,

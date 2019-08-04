@@ -1,15 +1,15 @@
 use std::cmp::PartialEq;
-pub struct ExpectList<'a, T: PartialEq, U> {
-    list: Vec<Expect<'a, T, U>>,
+pub struct ExpectList<T: PartialEq, U> {
+    list: Vec<Expect<T, U>>,
 }
 
-impl<'a, T: PartialEq, U> ExpectList<'a,T, U> {
-    pub fn new() -> ExpectList<'a, T, U> {
+impl<T: PartialEq, U> ExpectList<T, U> {
+    pub fn new() -> ExpectList<T, U> {
         ExpectList {
             list: Vec::new()
         }
     }
-    pub fn add(&mut self, val_type: T,expect_type: ExpectType, expect_fn: Box<FnOnce(U) + 'a>) {
+    pub fn add(&mut self, val_type: T,expect_type: ExpectType, expect_fn: Box<FnOnce(U)>) {
         let expect = Expect::new(val_type,expect_type, expect_fn);
         self.list.push(expect);
     }
@@ -25,14 +25,14 @@ impl<'a, T: PartialEq, U> ExpectList<'a,T, U> {
     }
 }
 
-pub struct Expect<'a, T: PartialEq, U> {
+pub struct Expect<T: PartialEq, U> {
     val_type: T,
     expect_type: ExpectType,
-    expect_fn: Box<FnOnce(U) + 'a>,
+    expect_fn: Box<FnOnce(U)>,
 }
 
-impl<'a, T: PartialEq, U> Expect<'a, T, U> {
-    pub fn new(val_type: T, expect_type: ExpectType, expect_fn: Box<FnOnce(U) + 'a>) -> Expect<T, U> {
+impl<T: PartialEq, U> Expect<T, U> {
+    pub fn new(val_type: T, expect_type: ExpectType, expect_fn: Box<FnOnce(U)>) -> Expect<T, U> {
         Expect {
             val_type,
             expect_type,
