@@ -3,6 +3,14 @@
   - 给 expect 添加这个参数....
   - 这样所有的都只在函数中有效...
   - expect_fn 的生命周期最多和 ExpectList 一样, 不可能超过 scope_tree, 这我怎么处理
+  - 让 expect_fn 的生命周期小于这个函数...
+
+- @Keyword
+
+  - 能不能不直接使用变量
+  - 返回一个 key, 通过这个 key 能找到我引用的变量
+
+## 2019-08-06 08:01:14
 
 - @ques rust 能不能获取一个变量的 lifeTime
   - 或者然 struct 函数的参数的 lifetime 为 self

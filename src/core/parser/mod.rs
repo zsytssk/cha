@@ -33,7 +33,7 @@ impl Parser {
                         let mut ref_scope_tree = self.scope_tree.lock().unwrap();
                         Parser::last_scope_add_child(&mut *ref_scope_tree, cur_node);
                         let expect_fn = |ident| {
-                            let val = cur_node.get_val();
+                            let val = &cur_node.get_val();
                             match val {
                                 NodeVal::Define(define) => {
                                     define.set_right(ident);
@@ -61,8 +61,8 @@ impl Parser {
                         let mut ref_scope_tree = self.scope_tree.lock().unwrap();
                         ref_scope_tree.push(cur_node);
                         let expect_fn: Box<FnOnce(Node)> = Box::new(|child_scope| {
-                            let mut ref_scope_tree = self.scope_tree.lock().unwrap();
-                            Parser::last_scope_add_child(&mut ref_scope_tree, child_scope);
+                            // let mut ref_scope_tree = self.scope_tree.lock().unwrap();
+                            // Parser::last_scope_add_child(&mut ref_scope_tree, child_scope);
                         });
                         self.expect_list.add(NodeType::Scope, ExpectType::After, expect_fn);
                     }
