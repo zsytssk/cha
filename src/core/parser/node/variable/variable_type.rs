@@ -1,6 +1,6 @@
 #[derive(Debug)]
 pub enum VariableType {
-    number,
-    string,
-    function,
+    Number,
+    r#String,
+    Function,
 }
