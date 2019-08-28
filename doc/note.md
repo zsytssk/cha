@@ -1,4 +1,72 @@
-- @q
+- @todo macro
+
+- @ques preview_next None hello world 没有放在一起...
+
+- @ques 数据有问题 多个 space --> EOL
+
+## 2019-08-28 17:33:07
+
+- @ques expect lifeTime 如何解决...
+
+  - n
+  - 现在没有办法解决...
+  - 给 expect 添加这个参数....
+  - 这样所有的都只在函数中有效...
+  - expect_fn 的生命周期最多和 ExpectList 一样, 不可能超过 scope_tree, 这我怎么处理
+  - 让 expect_fn 的生命周期小于这个函数...
+  - 能不能 expect_fn 是一个引用, 保存在 Parser 里面
+  - 这样生命周期的问题就解决了
+
+- @Keyword
+
+  - 能不能不直接使用变量
+  - 返回一个 key, 通过这个 key 能找到我引用的变量
+
+- @ques rust 有没有观察者 设计模式
+
+- @ques 怎么定位到一个特定的 scope 中的 node...,
+
+  - 应该有 id 的
+  - id 的下面怎么找...
+  - 可以在创建的时候不放在树中
+  - 等到完成之后才放进去...
+
+- @ques let a = 1; a 并不知道自己后面有没有 = 1;
+
+- @ques 代码像一篇文章, 语句是他的单位...
+  - 文件 块 句子 词组 字
+  - fun scope, match scope if scope
+  - 我怎么定位到 定义呢
+
+## 2019-08-06 08:01:14
+
+- @ques rust 能不能获取一个变量的 lifeTime
+  - 或者然 struct 函数的参数的 lifetime 为 self
+
+* @ques `let Expect{expect_fn,..} = self;expect_fn()`
+
+  - expect_fn 不知道自己内部使用多少对象, 不知道他的 size
+
+* @ques 两个 enum 怎么 match 相等
+
+* @ques rust 如何传递函数给 struct
+
+```
+match (self_val_type, self_expect_type) {
+    (val_type, expect_type) => true,
+    _ => false,
+}
+```
+
+- @ques rust 能用观察者吗
+
+- @ques rust 一行就相当于一个语句
+
+  - 检测换行符...
+
+- @todo ExpectList<T: PartialEq, U>
+
+## 2019-08-02 07:45:55
 
 - @ques rust 怎么将 vec 中 item 拿出来放到其他地方...
   - 我就是要将 item 拿出来

@@ -2,8 +2,10 @@ mod variable_type;
 
 use variable_type::VariableType;
 
+#[derive(Debug)]
 pub struct Variable {
     name: String,
+    /** variable 的类型  */
     variable_type: Option<VariableType>,
 }
 

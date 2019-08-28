@@ -6,8 +6,10 @@ pub enum TokenData {
     Bool(bool),
     Keyword(Keyword),
     Identifier(String),
-    EOF,
+    /** 标点符号 */
     Punc(Punc),
+    EOL,
+    EOF,
 }
 
 impl TokenData {

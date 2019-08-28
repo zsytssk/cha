@@ -1,6 +1,7 @@
 #[derive(Debug)]
 pub enum Keyword {
-    Let
+    Let,
+    Fun,
 }
 
 impl Keyword {

@@ -1,5 +1,6 @@
 use super::Node;
 
+#[derive(Debug)]
 pub struct Define {
     right: Option<Node>,
     is_mut: bool,

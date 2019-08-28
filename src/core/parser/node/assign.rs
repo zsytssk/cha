@@ -1,5 +1,6 @@
 use super::Node;
 
+#[derive(Debug)]
 pub struct Assign {
     left: Option<Node>,
     right: Option<Node>,

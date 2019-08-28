@@ -12,9 +12,10 @@ impl Pos {
     }
 }
 
+#[derive(Debug)]
 pub struct NodePosition {
     uid: String,
-    pos: Pos,
+    pub pos: Pos,
 }
 
 impl NodePosition {
