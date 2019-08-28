@@ -1,8 +1,8 @@
 mod node;
 
 use super::lexer::{Keyword, Punc, Token, TokenData};
-use node::NodeType::*;
 use node::sign::Sign;
+use node::NodeType::*;
 pub use node::{Node, NodePosition, NodeType, NodeVal};
 use std::sync::Mutex;
 
@@ -17,6 +17,7 @@ impl Parser {
         parser.parsing()
     }
     pub fn parsing(&mut self) -> Vec<Node> {
+        let mut node_tree: Vec<Node> = Vec::new();
         let mut scope_tree: Vec<Node> = Vec::new();
         let mut cur_state: Vec<Node> = Vec::new();
 
@@ -40,15 +41,20 @@ impl Parser {
                         _ => {}
                     };
                     cur_state.push(next_node);
-                },
+                }
                 NodeVal::Scope(_) => {
                     scope_tree.push(next_node);
-                },
-                NodeVal::Sign(ref sign_box) =>  {
-                    match sign_box {
-                        Sign::ScopeClose => {
-                            let scope = scope_tree.remove(scope_tree.len() -1);
-                            let last_index = scope_tree.len() -1;
+                }
+                NodeVal::Assign(_) => {
+                    scope_tree.push(next_node);
+                }
+                NodeVal::Sign(ref sign_box) => match sign_box {
+                    Sign::ScopeClose => {
+                        let scope = scope_tree.remove(scope_tree.len() - 1);
+                        let last_index = scope_tree.len() - 1;
+                        if (last_index as i32) < 0 {
+                            node_tree.push(scope);
+                        } else {
                             let Node { ref mut val, .. } = &mut scope_tree[last_index];
                             match val {
                                 NodeVal::Scope(ref mut scope_parent) => {
@@ -56,10 +62,13 @@ impl Parser {
                                 }
                                 _ => {}
                             }
-                        },
-                        _ => {}
+                        }
                     }
-                }
+                    Sign::EndOfLine => {
+                        cur_state
+                    }
+                    _ => {}
+                },
                 _ => {}
             }
         }
@@ -88,15 +97,21 @@ impl Parser {
                     data,
                 )),
                 TokenData::Punc(punc) => match punc {
-                    Punc::Assign => {
-                        Some(Node::new(NodeType::Assign, NodePosition::new(pos.x, pos.y),data))
-                    }
-                    Punc::OpenBlock => {
-                        Some(Node::new(NodeType::Scope, NodePosition::new(pos.x, pos.y), data))
-                    }
-                    Punc::CloseBlock => {
-                        Some(Node::new(NodeType::Scope, NodePosition::new(pos.x, pos.y), data))
-                    }
+                    Punc::Assign => Some(Node::new(
+                        NodeType::Assign,
+                        NodePosition::new(pos.x, pos.y),
+                        data,
+                    )),
+                    Punc::OpenBlock => Some(Node::new(
+                        NodeType::Scope,
+                        NodePosition::new(pos.x, pos.y),
+                        data,
+                    )),
+                    Punc::CloseBlock => Some(Node::new(
+                        NodeType::Scope,
+                        NodePosition::new(pos.x, pos.y),
+                        data,
+                    )),
                     _ => None,
                 },
                 TokenData::EOL => None,

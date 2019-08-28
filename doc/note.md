@@ -1,3 +1,21 @@
+- @ques 语法关系,
+
+  - scope -> statement -> node
+  - 我怎么找到特定的 node
+  - 可能 node 在运行的时候才有关系...
+  - scope -> statement -> expression -> expression 就像一篇文章 -> 段落 -> 句子
+  - scope -> node 就像里面的人物关系表 -> 只有在实际运行是才有关系...
+  - ***
+  - node 是跨越行的...
+
+- expression 包裹 expression 一直到行结束
+  - 怎么将东西组成一个 express
+  - `let a = 1;`, (1 + (1 + 1)) 这如何组织关系...
+  - 加本身组成一个 expression
+  - 现在我可以不管...
+
+## 2019-08-20 07:50:13
+
 - macro
 
 - @ques expect lifeTime 如何解决...
