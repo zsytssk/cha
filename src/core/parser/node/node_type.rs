@@ -32,7 +32,7 @@ pub enum NodeVal {
 }
 
 impl NodeVal {
-    pub fn new(node_type: NodeType, ori_data: &TokenData) -> NodeVal {
+    pub fn new(node_type: NodeType, ori_data: Option<&TokenData>) -> NodeVal {
         match node_type {
             NodeType::Scope => NodeVal::Scope(Box::new(Scope::new())),
             NodeType::Statement => NodeVal::Statement(Box::new(Statement::new())),
@@ -40,7 +40,8 @@ impl NodeVal {
             NodeType::Variable => NodeVal::Variable(Box::new(Variable::new())),
             NodeType::Define => NodeVal::Define(Box::new(Define::new())),
             NodeType::Sign => {
-                let sign = Sign::new(ori_data).unwrap();
+                let data = ori_data.unwrap();
+                let sign = Sign::new(data).unwrap();
                 NodeVal::Sign(sign)
             },
         }

@@ -17,14 +17,26 @@
 ## 2019-08-20 07:50:13
 
 - macro
+- @todo macro
+
+- @note 方便的方式组织 struct...
+
+- @ques preview_next None hello world 没有放在一起...
+
+- @ques 数据有问题 多个 space --> EOL
+
+## 2019-08-28 17:33:07
 
 - @ques expect lifeTime 如何解决...
 
+  - n
   - 现在没有办法解决...
   - 给 expect 添加这个参数....
   - 这样所有的都只在函数中有效...
   - expect_fn 的生命周期最多和 ExpectList 一样, 不可能超过 scope_tree, 这我怎么处理
   - 让 expect_fn 的生命周期小于这个函数...
+  - 能不能 expect_fn 是一个引用, 保存在 Parser 里面
+  - 这样生命周期的问题就解决了
 
 - @Keyword
 

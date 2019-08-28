@@ -17,7 +17,7 @@ pub struct Node {
 }
 
 impl Node {
-    pub fn new(node_type: NodeType, position: NodePosition, ori_data: &TokenData) -> Node {
+    pub fn new(node_type: NodeType, position: NodePosition, ori_data: Option<&TokenData>) -> Node {
         let node_val = NodeVal::new(node_type, ori_data);
         Node {
             val: node_val,
