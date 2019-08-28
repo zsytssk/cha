@@ -6,9 +6,9 @@ use error::Error;
 use std::iter::Peekable;
 use std::str::Chars;
 
-pub use token::{Token, TokenData};
-pub use config::punc::Punc;
 pub use config::keyword::Keyword;
+pub use config::punc::Punc;
+pub use token::{Token, TokenData};
 
 #[derive(Debug)]
 pub struct Lexer<'a> {
@@ -49,12 +49,15 @@ impl<'a> Lexer<'a> {
             let ch = self.next()?;
 
             match ch {
-                '\n' | ' ' | '\t' | '\r' => {
-                    self.push_token(TokenData::EOL);
+                '\n' | '\t' | '\r' => {
+                    self.push_token(TokenData::SPACE);
                     if ch == '\r' {
                         self.line_number += 1;
                         self.column_number = 0;
                     }
+                }
+                ' ' => {
+                    self.push_token(TokenData::EOL);
                 }
                 _ if Punc::is_punc(&ch.to_string()) => match Punc::from_str(&ch.to_string()) {
                     Some(punc) => {

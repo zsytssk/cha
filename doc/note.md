@@ -1,4 +1,11 @@
-- @ques 语法关系,
+- @todo 还有许多值没有做处理...
+
+  - let identify
+
+- @todo 双引号里面的字符串应该能匹配..
+- @todo 连续的 space 要不要合并在一起
+
+* @ques 语法关系,
 
   - scope -> statement -> node
   - 我怎么找到特定的 node
@@ -8,7 +15,7 @@
   - ***
   - node 是跨越行的...
 
-- expression 包裹 expression 一直到行结束
+* expression 包裹 expression 一直到行结束
   - 怎么将东西组成一个 express
   - `let a = 1;`, (1 + (1 + 1)) 这如何组织关系...
   - 加本身组成一个 expression

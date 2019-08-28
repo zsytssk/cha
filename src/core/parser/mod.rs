@@ -30,12 +30,8 @@ impl Parser {
                     return node_list;
                 }
             };
-
-            let Node {
-                ref mut val,
-                position,
-                ..
-            } = &mut next_node;
+            println!("test:>2 {:?}", &next_node);
+            let Node { ref mut val, .. } = &mut next_node;
             match val {
                 NodeVal::Define(ref mut define) => {
                     let var_node = self.get_next().unwrap();
@@ -54,23 +50,28 @@ impl Parser {
                 NodeVal::Sign(ref sign_box) => match sign_box {
                     Sign::ScopeClose => {
                         let scope = scope_tree.remove(scope_tree.len() - 1);
-                        addToLastScope(scope, &mut scope_tree, &mut node_list);
+                        add_to_last_scope(scope, &mut scope_tree, &mut node_list);
                     }
                     Sign::EndOfLine => {
                         let pos = &next_node.position.pos;
-                        let mut state =
-                            Node::new(NodeType::Statement, NodePosition::new(pos.x, pos.y), None);
-                        match state.val {
-                            NodeVal::Statement(ref mut in_state) => {
-                                for i in 0..cur_state.len() {
-                                    let node = cur_state.remove(i);
-                                    in_state.add_child(node);
+                        if cur_state.len() > 0 {
+                            let mut state = Node::new(
+                                NodeType::Statement,
+                                NodePosition::new(pos.x, pos.y),
+                                None,
+                            );
+                            match state.val {
+                                NodeVal::Statement(ref mut in_state) => {
+                                    for i in 0..cur_state.len() {
+                                        let node = cur_state.remove(i);
+                                        in_state.add_child(node);
+                                    }
                                 }
-                            }
-                            _ => {}
-                        };
+                                _ => {}
+                            };
 
-                        addToLastScope(state, &mut scope_tree, &mut node_list);
+                            add_to_last_scope(state, &mut scope_tree, &mut node_list);
+                        }
                     }
                     _ => {}
                 },
@@ -79,12 +80,23 @@ impl Parser {
         }
     }
     fn get_next(&mut self) -> Option<Node> {
-        match self.preview_next() {
-            None => None,
-            Some(node) => {
-                self.index += 1;
-                Some(node)
-            }
+        loop {
+            match self.preview_next() {
+                None => {
+                    self.index += 1;
+                }
+                Some(node) => {
+                    self.index += 1;
+                    let Node { val, .. } = &node;
+
+                    match val {
+                        NodeVal::Sign(Sign::EndOfFile) => return None,
+                        _ => {}
+                    };
+
+                    return Some(node);
+                }
+            };
         }
     }
     fn preview_next(&self) -> Option<Node> {
@@ -139,24 +151,14 @@ impl Parser {
                     NodePosition::new(pos.x, pos.y),
                     Some(data),
                 )),
+                _ => None,
             }
         }
     }
-    fn last_scope_add_child(&mut self, child: Node) {
-        // let mut ref_scope_tree = scope_tree.lock().unwrap();
-        // let last_scope = ref_scope_tree.last_mut().unwrap();
-        // let val = last_scope.get_val();
-        // match val {
-        //     NodeVal::Scope(ref mut scope) => {
-        //         scope.add_child(child);
-        //     }
-        //     _ => {}
-        // }
-    }
 }
 
-fn addToLastScope(item: Node, scope_tree: &mut Vec<Node>, node_list: &mut Vec<Node>) {
-    let last_index = (scope_tree.len() - 1) as i32;
+fn add_to_last_scope(item: Node, scope_tree: &mut Vec<Node>, node_list: &mut Vec<Node>) {
+    let last_index = (scope_tree.len() as i32) - 1;
     if last_index >= 0 {
         let Node { ref mut val, .. } = &mut scope_tree[last_index as usize];
         match val {

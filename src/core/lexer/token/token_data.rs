@@ -9,6 +9,7 @@ pub enum TokenData {
     /** 标点符号 */
     Punc(Punc),
     EOL,
+    SPACE,
     EOF,
 }
 
