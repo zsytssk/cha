@@ -1,5 +1,7 @@
 - @todo macro
 
+- @note 方便的方式组织 struct...
+
 - @ques preview_next None hello world 没有放在一起...
 
 - @ques 数据有问题 多个 space --> EOL
