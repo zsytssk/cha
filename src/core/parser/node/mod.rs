@@ -2,10 +2,10 @@ mod assign;
 mod node_type;
 mod scope;
 mod variable;
-mod define;
 mod statement;
 
 pub mod sign;
+pub mod define;
 pub use crate::core::utils::pos::NodePosition;
 pub use node_type::{NodeType, NodeVal};
 pub use crate::core::lexer::{Punc, TokenData};

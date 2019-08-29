@@ -14,6 +14,8 @@ pub enum NodeType {
     /** 赋值 */
     Assign,
     /** 变量 */
+    r#String,
+    /** 变量 */
     Variable,
     /** 语句 */
     Statement,
@@ -24,6 +26,7 @@ pub enum NodeType {
 #[derive(Debug)]
 pub enum NodeVal {
     Variable(Box<Variable>),
+    r#String(String),
     Assign(Box<Assign>),
     Scope(Box<Scope>),
     Define(Box<Define>),
@@ -37,14 +40,25 @@ impl NodeVal {
             NodeType::Scope => NodeVal::Scope(Box::new(Scope::new())),
             NodeType::Statement => NodeVal::Statement(Box::new(Statement::new())),
             NodeType::Assign => NodeVal::Assign(Box::new(Assign::new())),
-            NodeType::Variable => NodeVal::Variable(Box::new(Variable::new())),
+            NodeType::Variable => NodeVal::Variable(Box::new(Variable::new(ori_data))),
             NodeType::Define => NodeVal::Define(Box::new(Define::new())),
             NodeType::Sign => {
                 let data = ori_data.unwrap();
                 let sign = Sign::new(data).unwrap();
                 NodeVal::Sign(sign)
-            },
+            }
+            NodeType::r#String => {
+                let data = ori_data.unwrap();
+                match data {
+                    TokenData::r#String(_str_ori) => {
+                        let str_ori: &str = _str_ori;
+                        NodeVal::r#String(str_ori.to_owned())
+                    }
+                    _ => {
+                        panic!("cant gen String from {:?}", data);
+                    }
+                }
+            }
         }
     }
-    pub fn unwrap() {}
 }

@@ -1,3 +1,46 @@
+- @todo print() 如何处理 这是一个方法的调用...
+
+  - 函数调用 函数 + 参数...
+
+- @note rust 的 match 写起来 还是比较麻烦...
+
+  - 有什么方法来匹配类型吗...
+
+- github 简历
+
+## 2019-08-29 14:04:00
+
+[Node { val: Scope(Scope { children: [Node { val: Statement(Statement { children: [Node { val: String("hello world"), position: NodePosition { uid: "", pos: Pos { x: 26, y: 1 } } }, Node { val: Variable(Variable { name: "a", variable_type: None }), position: NodePosition { uid: "", pos: Pos { x: 10, y: 1 } } }, Node { val: Define(Define { right: Some(Node { val: Assign(Assign { left: None, right: None }), position: NodePosition { uid: "", pos: Pos { x: 12, y: 1 } } }), is_mut: false }), position: NodePosition { uid: "", pos: Pos { x: 8, y: 1 } } }] }), position: NodePosition { uid: "", pos: Pos { x: 0, y: 0 } } }, Node { val: Statement(Statement { children: [Node { val: Variable(Variable { name: "a", variable_type: None }), position: NodePosition { uid:
+"", pos: Pos { x: 12, y: 2 } } }, Node { val: Variable(Variable { name: "print", variable_type: None }), position: NodePosition { uid: "", pos: Pos { x: 10, y: 2 } } }] }), position: NodePosition { uid: "", pos: Pos { x: 0, y: 0 } } }] }), position: NodePosition { uid: "", pos: Pos { x: 1, y: 0 } } }]
+
+- @ques `RUST_BACKTRACE=1`
+
+  - `RUST_BACKTRACE=1 cargo run`
+
+* @ques rust debug
+
+define_set_right(define, var_node);
+
+- @todo asiggn hello world 没有值...
+
+- @ques rust for in remove 会不会漏掉...
+
+- @ques rust RUST_BACKTRACE=1
+
+- @ques `let a = 1 + 2 + 3;` 怎么处理 `1 + 2 + 3` 怎么合并起来...
+
+* @todo Identifier("hello world") 变成 string
+
+* @ques assign 如何设置 right...
+
+  - 我还不知道右边有什么东西...
+  - 如果右边是一个表达式怎么处理...
+  - 一直到 `;` 结束...
+  - 这我怎么处理???
+  - 在一行结束之后去处理这个问题..., `=` 前面的 后面的 怎么处理...
+
+* @todo `lexer\mod.rs` 有重复代码
+
 - @todo 还有许多值没有做处理...
 
   - let identify

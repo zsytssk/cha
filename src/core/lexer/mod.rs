@@ -47,17 +47,44 @@ impl<'a> Lexer<'a> {
                 }
             }
             let ch = self.next()?;
-
             match ch {
                 '\n' | '\t' | '\r' => {
-                    self.push_token(TokenData::SPACE);
+                    self.push_token(TokenData::EOL);
                     if ch == '\r' {
                         self.line_number += 1;
                         self.column_number = 0;
                     }
                 }
                 ' ' => {
-                    self.push_token(TokenData::EOL);
+                    self.push_token(TokenData::SPACE);
+                }
+                '\"' => {
+                    let mut buf = "".to_string();
+                    loop {
+                        let nch = match self.preview_next() {
+                            Some(ch) => ch,
+                            None => break,
+                        };
+
+                        match nch {
+                            '\"' => {
+                                self.next()?;
+                                break;
+                            }
+                            _ => {
+                                buf.push(self.next()?);
+                            }
+                        }
+                    }
+
+                    match TokenData::from_string(&buf) {
+                        Some(token_data) => {
+                            self.push_token(token_data);
+                        }
+                        None => {
+                            panic!("cant generate Punc from {}", &buf);
+                        }
+                    }
                 }
                 _ if Punc::is_punc(&ch.to_string()) => match Punc::from_str(&ch.to_string()) {
                     Some(punc) => {

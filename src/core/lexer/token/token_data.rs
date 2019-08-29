@@ -5,7 +5,10 @@ use super::super::config::punc::Punc;
 pub enum TokenData {
     Bool(bool),
     Keyword(Keyword),
+    /** 变量 */
     Identifier(String),
+    /** 字符串 */
+    r#String(String),
     /** 标点符号 */
     Punc(Punc),
     EOL,
@@ -32,5 +35,8 @@ impl TokenData {
             Some(punc) => Some(TokenData::Punc(punc)),
             _ => None,
         }
+    }
+    pub fn from_string(val: &str) -> Option<TokenData> {
+        Some(TokenData::r#String(val.to_owned()))
     }
 }

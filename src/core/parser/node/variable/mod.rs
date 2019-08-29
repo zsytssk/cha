@@ -1,5 +1,5 @@
 mod variable_type;
-
+use super::TokenData;
 use variable_type::VariableType;
 
 #[derive(Debug)]
@@ -10,9 +10,13 @@ pub struct Variable {
 }
 
 impl Variable {
-    pub fn new() -> Variable {
+    pub fn new(token_data: Option<&TokenData>) -> Variable {
+        let name = match token_data.unwrap() {
+            TokenData::Identifier(r#str) => r#str,
+            _ => "",
+        };
         Variable {
-            name: String::new(),
+            name: String::from(name),
             variable_type: None,
         }
     }
