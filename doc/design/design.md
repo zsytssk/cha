@@ -1,3 +1,11 @@
+- component base language
+  - interface + implement
+  - 集合提供外接接口
+
+## save
+
+提供语法原理, 方便扩展新的语法
+
 cha 是语法类似 rust 的脚本语言, 用来实现一些 zsy 常用脚本的任务
 
 类型推断
