@@ -4,6 +4,56 @@ https://pest.rs/book/examples/csv.html
 
 ## 2021-03-31 09:31:51
 
+感觉我这一开始设计太复杂了，我什么都不懂就搭一个这么大的架子, 将会耗费太多的精力在上面
+可以设立一个个小目标；
+
+解析器 -> 变量 -> 函数 -> pattern match -> ...
+在这同时一个个的设计...
+
+有没有一种方式 像 hook 一样的 组织代码， 非常的简单 非常的易于使用
+rust 的语法如果没有生命周期那也是很简单的
+
+脚本语言 -> ui 语言 -> 易于扩展
+
+## 2021-03-31 09:56:18
+
+- component base language
+  - interface + implement
+  - 集合提供外接接口
+
+## save
+
+提供语法原理, 方便扩展新的语法
+
+cha 是语法类似 rust 的脚本语言, 用来实现一些 zsy 常用脚本的任务
+
+类型推断
+
+基本语法很简单， 如果要用高级功能， 那么就需要满足特定的条件。。。
+
+很容易表达人的想法 -> 最好是思维型
+(将特例分离)
+
+interface 继承只能用来整理数据
+
+await
+
+很容易用来做 ui
+
+- 语法解析器生成 Node, Node 之间存在对应的关系...
+  - node 之间存在各种关系...
+
+最好能直接调用 rust 代码
+
+像 python 一样的语法, 易于理解...
+
+能不能参考中国古代数学的逻辑, 来组织语法
+<九章数学>
+
+有没有办法将 rust 里面 box option ... 去掉... - 更干净 清晰
+
+快速的监听属性的改变...
+
 ## 2021-03-31 09:30:33
 
 https://medium.com/clevyio/using-rust-and-nom-to-create-an-open-source-programming-language-for-chatbots-12fe67582af5
