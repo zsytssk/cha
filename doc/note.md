@@ -1,3 +1,21 @@
+rust + pest
+
+https://pest.rs/book/examples/csv.html
+
+## 2021-03-31 09:31:51
+
+## 2021-03-31 09:30:33
+
+https://medium.com/clevyio/using-rust-and-nom-to-create-an-open-source-programming-language-for-chatbots-12fe67582af5
+
+https://blog.cloudflare.com/building-fast-interpreters-in-rust/
+
+rust + pest | nom
+
+easy use + speed
+
+best lang for script | ui render ｜ speed
+
 ## 2019-10-10 09:29:46
 
 - @todo print() 如何处理 这是一个方法的调用...
