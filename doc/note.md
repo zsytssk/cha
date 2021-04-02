@@ -1,6 +1,12 @@
 rust + pest
 
-https://pest.rs/book/examples/csv.html
+https://pest.rs/book/parser_api.html
+
+## 2021-04-02 09:54:10
+
+- @ques 不知道 rust 本身的解析器是通过什么来写的
+
+- @ques 字母怎么表示
 
 ## 2021-03-31 09:31:51
 
