@@ -1,12 +1,64 @@
 rust + pest
 
-https://pest.rs/book/parser_api.html
+https://pest.rs/book/examples/json.html
+
+## 2021-04-13 09:53:01
+
+- @ques 怎么运行代码
+
+- @ques test 换成什么语句合适
+
+```
+test = {value | operate}
+define_key = {"let"}
+define = { define_key ~ name ~ "=" ~ test ~ ";" }
+```
+
+- @todo
+
+```ts
+{
+  let c = 1 + 2;
+}
+```
+
+## 2021-04-12 09:38:51
+
+- @todo
+
+  - 基本类型
+    - array
+  - 基本语句
+    - 声明
+    - 赋值
+  - 加减 乘除
+  - if else
+  - function
+  - for loop
+
+- @todo 基本参照 rust dart ts 语法
+
+- @ques pest 能不能跨文件
 
 ## 2021-04-02 09:54:10
+
+- @ques 字符串"true"是怎么变成 true 的
+
+- @ques `inner = @{ char* }` 是什么意思
+
+  - 不容许存在 WHITESPACE ` ${ char* }` 相同且匹配 char\*
+
+- @ques `inner = ${ char* }` 是什么意思
+
+  - 不会忽略 WHITESPACE
 
 - @ques 不知道 rust 本身的解析器是通过什么来写的
 
 - @ques 字母怎么表示
+
+- @ques 数字怎么表示
+  - 十六进制...
+  - 八进制
 
 ## 2021-03-31 09:31:51
 
