@@ -1,10 +1,36 @@
 rust + pest
 
-https://pest.rs/book/examples/json.html
+https://pest.rs/book/examples/jlang.html
+
+- parser(token<[]>) -> lexer(Node<tree>) -> executer
+
+- @ques 理解一些基本概念
 
 ## 2021-04-13 09:53:01
 
+- @ques 那么多的类型该怎么处理 ?
+
+  - rust 无法做类型继承
+  - enum TokenData
+
+- @ques if else 怎么放在 TokenData 中
+
+- @ques BinaryExpression
+
+  - 赋值语句
+
+- @todo Expression ｜ Statement
+
 - @ques 怎么运行代码
+
+  - 怎么写 executer
+
+- VariableDeclaration FunctionDeclaration
+
+- lexer 每一个语句记录他的位置 会有很多的地方用到
+
+  - location: start: position {line, column}, end: position {line, column}
+  - pos: number
 
 - @ques test 换成什么语句合适
 
