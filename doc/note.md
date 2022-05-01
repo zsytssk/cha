@@ -5,11 +5,91 @@ https://arzg.github.io/lang/2/
 
 ## 2022-05-01 14:38:46
 
+https://pest.rs/book/examples/jlang.html
+
+- parser(token<[]>) -> lexer(Node<tree>) -> executer
+
+- @ques 理解一些基本概念
+
+## 2021-04-13 09:53:01
+
+- @ques 那么多的类型该怎么处理 ?
+
+  - rust 无法做类型继承
+  - enum TokenData
+
+- @ques if else 怎么放在 TokenData 中
+
+- @ques BinaryExpression
+
+  - 赋值语句
+
+- @todo Expression ｜ Statement
+
+- @ques 怎么运行代码
+
+  - 怎么写 executer
+
+- VariableDeclaration FunctionDeclaration
+
+- lexer 每一个语句记录他的位置 会有很多的地方用到
+
+  - location: start: position {line, column}, end: position {line, column}
+  - pos: number
+
+- @ques test 换成什么语句合适
+
+```
+test = {value | operate}
+define_key = {"let"}
+define = { define_key ~ name ~ "=" ~ test ~ ";" }
+```
+
+- @todo
+
+```ts
+{
+  let c = 1 + 2;
+}
+```
+
+## 2021-04-12 09:38:51
+
+- @todo
+
+  - 基本类型
+    - array
+  - 基本语句
+    - 声明
+    - 赋值
+  - 加减 乘除
+  - if else
+  - function
+  - for loop
+
+- @todo 基本参照 rust dart ts 语法
+
+- @ques pest 能不能跨文件
+
 ## 2021-04-02 09:54:10
+
+- @ques 字符串"true"是怎么变成 true 的
+
+- @ques `inner = @{ char* }` 是什么意思
+
+  - 不容许存在 WHITESPACE ` ${ char* }` 相同且匹配 char\*
+
+- @ques `inner = ${ char* }` 是什么意思
+
+  - 不会忽略 WHITESPACE
 
 - @ques 不知道 rust 本身的解析器是通过什么来写的
 
 - @ques 字母怎么表示
+
+- @ques 数字怎么表示
+  - 十六进制...
+  - 八进制
 
 ## 2021-03-31 09:31:51
 
