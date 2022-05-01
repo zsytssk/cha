@@ -1,5 +1,9 @@
 rust 对应的脚本语言:> 快速开发 + 性能 + 安全...
 
+## 参考文档
+
+https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html
+
 ## 如何做 benchmark
 
 ## 语句的类型
