@@ -1,9 +1,23 @@
 rust + pest
 
 https://pest.rs/book/parser_api.html
-https://arzg.github.io/lang/2/
+https://arzg.github.io/lang/4/
+
+## 2022-05-02 16:01:21
+
+- @ques 如何匹配一个个独特的语法
+  - 最好是非常容易扩展的写法
+  - 最好能在一个地方写 match pattern
+  - `let @name = @expr` 这种形式 那就方便多了
+  - 我能想到的就是, 一个个的去匹配
 
 ## 2022-05-01 14:38:46
+
+- @save test
+
+```
+cargo test -- tests::parse_one_plus_two --nocapture
+```
 
 https://pest.rs/book/examples/jlang.html
 

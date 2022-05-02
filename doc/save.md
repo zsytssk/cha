@@ -2,6 +2,8 @@ rust 对应的脚本语言:> 快速开发 + 性能 + 安全...
 
 ## 参考文档
 
+- @imp https://arzg.github.io/lang/3/
+
 https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html
 
 ## 如何做 benchmark
