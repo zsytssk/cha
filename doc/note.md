@@ -9,6 +9,8 @@ https://pest.rs/book/examples/jlang.html
 
 - parser(token<[]>) -> lexer(Node<tree>) -> executer
 
+- cargo test -- --show-output
+
 - @ques 理解一些基本概念
 
 ## 2021-04-13 09:53:01
