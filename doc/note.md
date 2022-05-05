@@ -1,15 +1,26 @@
 rust + pest
 
 https://pest.rs/book/parser_api.html
-https://arzg.github.io/lang/4/
+https://arzg.github.io/lang/7/
+
+## 2022-05-04 10:40:46
+
+- @ques 应该给自己一点拓展的时间, 瞎搞瞎搞
 
 ## 2022-05-02 16:01:21
 
 - @ques 如何匹配一个个独特的语法
+
   - 最好是非常容易扩展的写法
   - 最好能在一个地方写 match pattern
   - `let @name = @expr` 这种形式 那就方便多了
   - 我能想到的就是, 一个个的去匹配
+
+- @todo 比较不熟悉的地方
+
+- @ques map_else or_else
+
+- @ques Result 的返回值处理
 
 ## 2022-05-01 14:38:46
 
