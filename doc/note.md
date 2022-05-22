@@ -1,11 +1,45 @@
 rust + pest
 
+https://arzg.github.io/lang/16/
 https://pest.rs/book/parser_api.html
-https://arzg.github.io/lang/7/
+
+## 2022-05-22 15:49:53
+
+- @ques 为什么后续 placeholder 没有问题
+
+## 2022-05-11 08:58:28
+
+- @ques eat_trivia 为什么能有作用?
+
+- @ques checkpoint 没用, test 现在怎么没有问题
+
+- @todo 整理下代码逻辑
+
+- @ques 下面的是做什么的
+
+```
+Literal,
+ParenExpr,
+PrefixExpr,
+VariableRef,
+```
+
+### end
+
+- @ques Logos 有没有位置信息 -> 有
 
 ## 2022-05-04 10:40:46
 
 - @ques 应该给自己一点拓展的时间, 瞎搞瞎搞
+
+- @ques `mut s: &str,` 和 `s: &mut str` 的区别
+
+- @ques 什么意思 `impl From<SyntaxKind> for rowan::SyntaxKind`
+
+- @ques 什么意思 derive(Hash)
+- @ques lexer 的功能
+- @ques launguage syntanx parse 的关系是什么
+- @ques Peekable 的关系是什么
 
 ## 2022-05-02 16:01:21
 
