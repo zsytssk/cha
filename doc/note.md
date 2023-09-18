@@ -3,6 +3,11 @@ rust + pest
 https://arzg.github.io/lang/16/
 https://pest.rs/book/parser_api.html
 
+## 2023-09-15 22:29:04
+
+- 一个语言 默认 都是直接访问，等到处了问题时 将目标类型转化 为 Mutex 或者 只能有一个写的数据格式
+  - 这种新的数据格式都会变成一个 lock 形式的数据
+
 ## 2022-05-22 15:49:53
 
 - @ques 为什么后续 placeholder 没有问题
